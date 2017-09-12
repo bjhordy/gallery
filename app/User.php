@@ -22,6 +22,11 @@ class User extends Authenticatable
         return $this->hasMany(Gallery::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function isAuthor(Photo $photo)
     {
         return $photo->gallery->user_id == $this->id;
